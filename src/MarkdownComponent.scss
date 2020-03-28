@@ -7,10 +7,10 @@ $theme-colors: (
 img{
     @extend .w-25;
 }
-pre{
+#preview pre{
     @extend .border;
     @extend .rounded;
-    @extend .bg-light;
+    // @extend .bg-light;
     @extend .p-4;
 }
 blockquote{
