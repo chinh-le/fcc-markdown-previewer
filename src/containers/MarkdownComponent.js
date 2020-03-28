@@ -3,12 +3,14 @@ import {
   Container, Row, Col, Accordion, Card,
 } from 'react-bootstrap';
 import MarkdownIt from 'markdown-it';
-import ReactHtmlParser from 'react-html-parser';
+
+import PreviewComponent from '../components/PreviewComponent';
+import HtmlComponent from '../components/HtmlComponent';
 
 // import 'bootstrap/dist/css/bootstrap.min.css'; // not required if using Sass
 import './MarkdownComponent.scss';
 
-import { MD } from './CONST';
+import { MD } from '../const';
 
 const MarkdownComponent = () => {
   const initialMds = MD.join('\n');
@@ -35,24 +37,10 @@ const MarkdownComponent = () => {
               </Accordion.Collapse>
             </Card>
           </Accordion>
-          <Accordion defaultActiveKey="0">
-            <Card>
-              <Accordion.Toggle as={Card.Header} className="font-weight-bold mb-0" eventKey="1">HTML</Accordion.Toggle>
-              <Accordion.Collapse eventKey="1">
-                <Card.Body className="bg-light"><pre>{mdi.render(mark)}</pre></Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          </Accordion>
+          <HtmlComponent mark={mdi.render(mark)} />
         </Col>
         <Col sm={12} md={6} className="mb-4">
-          <Accordion defaultActiveKey="0">
-            <Card>
-              <Accordion.Toggle as={Card.Header} className="font-weight-bold mb-0" eventKey="0">Preview</Accordion.Toggle>
-              <Accordion.Collapse eventKey="0">
-                <Card.Body className="bg-light" id="preview">{ReactHtmlParser(mdi.render(mark))}</Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          </Accordion>
+          <PreviewComponent mark={mdi.render(mark)} />
         </Col>
       </Row>
     </Container>
