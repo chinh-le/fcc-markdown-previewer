@@ -22,33 +22,35 @@ const MarkdownComponent = () => {
 
   return (
     <Container fluid>
-      <h1>Markdown Previewer</h1>
+      <h1 className="text-center py-4">Markdown Previewer</h1>
       <Row>
         <Col sm={12} md={6} className="mb-4">
           <Accordion className="mb-4" defaultActiveKey="0">
             <Card>
-              <Card.Header>Editor</Card.Header>
-              <Card.Body>
-                <textarea onChange={changeHandler} className="w-100 border-0" rows="10" placeholder="Mark it Down!" id="editor" />
-              </Card.Body>
+              <Accordion.Toggle as={Card.Header} className="font-weight-bold mb-0" eventKey="0">Editor</Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body className="bg-light">
+                  <textarea onChange={changeHandler} className="w-100 border-0 bg-light" rows="10" placeholder="Mark it Down!" id="editor" />
+                </Card.Body>
+              </Accordion.Collapse>
             </Card>
           </Accordion>
           <Accordion defaultActiveKey="0">
             <Card>
-              <Card.Header>HTML</Card.Header>
-              <Card.Body>
-                {mdi.render(mark)}
-              </Card.Body>
+              <Accordion.Toggle as={Card.Header} className="font-weight-bold" eventKey="1">HTML</Accordion.Toggle>
+              <Accordion.Collapse eventKey="1">
+                <Card.Body>{mdi.render(mark)}</Card.Body>
+              </Accordion.Collapse>
             </Card>
           </Accordion>
         </Col>
         <Col sm={12} md={6} className="mb-4">
           <Accordion defaultActiveKey="0">
             <Card id="preview">
-              <Card.Header>Preview</Card.Header>
-              <Card.Body>
-                {ReactHtmlParser(mdi.render(mark))}
-              </Card.Body>
+              <Accordion.Toggle as={Card.Header} className="font-weight-bold" eventKey="0">Preview</Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>{ReactHtmlParser(mdi.render(mark))}</Card.Body>
+              </Accordion.Collapse>
             </Card>
           </Accordion>
         </Col>
