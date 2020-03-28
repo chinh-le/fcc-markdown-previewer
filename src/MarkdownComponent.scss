@@ -1,0 +1,23 @@
+$theme-colors: (
+    // "primary": tomato
+);
+
+@import "~bootstrap/scss/bootstrap";
+
+img{
+    @extend .w-25;
+}
+pre{
+    @extend .border;
+    @extend .rounded;
+    @extend .bg-light;
+    @extend .p-4;
+}
+blockquote{
+    border-left: 5px solid #dee2e6;
+    @extend .py-2;
+    @extend .px-4;
+}
+textarea:focus{
+    outline: none;
+}
