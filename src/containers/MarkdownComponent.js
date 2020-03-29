@@ -3,6 +3,7 @@ import {
   Container, Row, Col, Accordion, Card,
 } from 'react-bootstrap';
 import MarkdownIt from 'markdown-it';
+import GoogleFontLoader from 'react-google-font-loader';
 
 import PreviewComponent from '../components/PreviewComponent';
 import HtmlComponent from '../components/HtmlComponent';
@@ -24,12 +25,18 @@ const MarkdownComponent = () => {
 
   return (
     <Container fluid>
-      <h1 className="text-center py-4">Markdown Previewer</h1>
+      <GoogleFontLoader fonts={[
+        {
+          font: 'Roboto',
+          weights: [ 400, '400i']
+        }
+      ]} />
+      <h1 className="text-center py-4" style={{fontFamily: 'Roboto, Helvetica, sans-serif'}}>Markdown Previewer</h1>
       <Row>
         <Col sm={12} md={6} className="mb-4">
           <Accordion className="mb-4" defaultActiveKey="0">
             <Card>
-              <Accordion.Toggle as={Card.Header} className="font-weight-bold mb-0" eventKey="0">Editor</Accordion.Toggle>
+              <Accordion.Toggle as={Card.Header} className="font-weight-bold mb-0" style={{fontFamily: 'Roboto, Helvetica, sans-serif'}} eventKey="0">Editor</Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
                   <textarea onChange={changeHandler} value={mark} className="w-100 border-0" rows="10" placeholder="Mark it Down!" id="editor" />
