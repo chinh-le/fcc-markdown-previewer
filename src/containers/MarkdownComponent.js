@@ -3,7 +3,6 @@ import {
   Container, Row, Col, Accordion, Card,
 } from 'react-bootstrap';
 import MarkdownIt from 'markdown-it';
-import GoogleFontLoader from 'react-google-font-loader';
 
 import PreviewComponent from '../components/PreviewComponent';
 import HtmlComponent from '../components/HtmlComponent';
@@ -25,12 +24,6 @@ const MarkdownComponent = () => {
 
   return (
     <Container fluid>
-      <GoogleFontLoader fonts={[
-        {
-          font: 'Roboto',
-          weights: [ 400, '400i']
-        }
-      ]} />
       <h1 className="text-center py-4" style={{fontFamily: 'Roboto, Helvetica, sans-serif'}}>Markdown Previewer</h1>
       <Row>
         <Col sm={12} md={6} className="mb-4">
